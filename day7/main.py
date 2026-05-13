@@ -1,26 +1,24 @@
-# Project Hangman
-
 import random
 
-lists = ['hello', 'bye', 'why']
-word = random.choice(lists)
+random_list = ['hello', 'why', 'bye']
+word = random.choice(random_list)
 
 lives = 5
-placeholder = ['_'] * len(word)
+placeholder = ["_"] * len(word)
 
-while lives > 0 and '_' in placeholder:
-  print("Words: ", ' '.join(placeholder))
-  guess = input('guess the word: ').lower()
-  
+while lives > 0 and "_" in placeholder:
+  print("words: ", " ".join(placeholder))
+  guess = input('enter the word: ').lower()
+
   if guess in word:
     for i in range(len(word)):
       if word[i] == guess:
         placeholder[i] = guess
   else:
     lives -= 1
-    print('Wrong Answer, Lives left: ', lives)
+    print('You guessed it wrong', lives)
 
-if '_' not in placeholder:
-  print("Congrats you win")
+if "_" not in placeholder:
+  print('You won congrats')
 else:
-  print('better luck next time')
+  print('You lose try again')
